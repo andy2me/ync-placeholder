@@ -221,7 +221,7 @@ body {
 .footer {
   display: flex;
   flex-direction: column;
-  margin-top: auto;
+  margin-top: 2rem;
 }
 
 .paragraph {
@@ -233,11 +233,17 @@ body {
 }
 
 .paragraph:last-child {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .paragraph .underline {
-   position: relative;
+  position: relative;
+  white-space: nowrap;
+}
+
+.paragraph a { 
+  text-decoration: none;
+  color: #fff;
 }
 
 .paragraph .underline:after {
@@ -269,7 +275,7 @@ body {
   .page { padding: 2rem; }
   .title { font-size: 4rem; }
   .scribble svg { width: 105%; top: -33%; }
-  .footer { flex-direction: row; }
+  .footer { flex-direction: row; margin-top: auto; }
   .paragraph { width: 50%; text-align: left; }
   .paragraph:last-child { text-align: right; align-self: flex-end; }
 }
