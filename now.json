@@ -1,7 +1,6 @@
 {
   "name": "ync-placeholder",
   "version": 2,
-  "alias": ["weareync.co", "ync-placeholder"],
   "builds": [
     { "src": "*.html", "use": "@now/static" }
   ]
