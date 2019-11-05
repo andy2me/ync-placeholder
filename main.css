@@ -1,0 +1,292 @@
+/* CSS RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* CSS START */
+
+:root {
+  --bg-color: #000;
+  --font-color: #fff;
+}
+
+
+html {
+  background-color: var(--accent-color);
+}
+
+body {
+  font-family: 'neue-haas-grotesk-display',  -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  color: var(--font-color);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem;
+  background-color: var(--bg-color);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: rotate 1s;
+}
+
+.coming-soon {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.logo svg {
+  display: none;
+  width: 2rem;
+  height: 2rem;
+  animation: shake 3s 3s infinite;
+}
+
+.logo:hover svg {
+  animation: none;
+}
+
+
+.logo:hover svg path {
+  stroke: var(--accent-color);
+}
+
+.logo svg.logo-draw {
+  display: block;
+}
+
+.logo svg.logo-draw path {
+  stroke-dasharray: 0 1000;
+  animation: draw 600ms ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+.body {
+  position: relative;
+  margin-top: 50%;
+}
+
+.title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%);
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.15;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 300ms 300ms ease all;
+}
+
+.title-hide {
+  opacity: 0;
+  transition: 300ms ease all;
+}
+
+.scribble {
+  position: relative;
+}
+
+.scribble svg {
+  position: absolute;
+  top: -40%;
+  left: 0;
+  display: none;
+  width: 100%;
+}
+
+.scribble svg.scribble-draw {
+  display: block;
+}
+
+.scribble svg.scribble-draw path {
+  stroke-dasharray: 0 1000;
+  animation: draw 600ms ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+.old-new {
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: stretch;
+  margin: 0 auto;
+  width: 100%;
+  max-width: calc(100% - 30px);
+  height: 90px;
+  transform: perspective(400px) rotateX(45deg);
+  transition: 300ms ease all;
+}
+
+.old-new-show {
+  opacity: 1;
+  transform: perspective(0) rotateX(0);
+  transition: 300ms 300ms ease all;
+}
+
+.you-and-co, .arrow, .ync {
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+}
+
+.paragraph {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.paragraph:last-child {
+  margin-top: 1rem;
+}
+
+.paragraph .underline {
+   position: relative;
+}
+
+.paragraph .underline:after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+}
+
+@keyframes draw {
+  from { stroke-dasharray: 0 1000; stroke: var(--accent-color); }
+  to { stroke-dasharray: 1000 0; }
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  2% { transform: rotate(5deg); }
+  4% { transform: rotate(-5deg); }
+  6% { transform: rotate(0deg); }
+  8% { transform: rotate(-5deg); }
+  10% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@media only screen and (min-width: 640px) {
+  .page { padding: 2rem; }
+  .title { font-size: 4rem; }
+  .scribble svg { width: 105%; top: -33%; }
+  .footer { flex-direction: row; }
+  .paragraph { width: 50%; text-align: left; }
+  .paragraph:last-child { text-align: right; align-self: flex-end; }
+}
+
+
+@media only screen and (min-width: 768px) {
+  .logo svg { width: 3.125rem; height: 3.125rem; }
+  .coming-soon { font-size: 2rem; }
+  .body { margin-top: 300px; }
+}
+
+@media only screen and (min-width: 1024px) {
+  .page { padding: 3.75rem 6.25rem; }
+  .body { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0; }
+  .title { position: relative; left: 0; margin-top: -130px; transform: none; font-size: 9.375rem; white-space: nowrap; }
+  .scribble svg { top: -15%; left: -2%; }
+  .old-new { margin-top: -130px; max-width: 630px; }
+  .paragraph { width: 100%; max-width: 610px; font-size: 2rem; }
+  .paragraph:last-child { max-width: 100%; }
+}
