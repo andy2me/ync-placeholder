@@ -274,7 +274,6 @@ body {
   .paragraph:last-child { text-align: right; align-self: flex-end; }
 }
 
-
 @media only screen and (min-width: 768px) {
   .logo svg { width: 3.125rem; height: 3.125rem; }
   .coming-soon { font-size: 2rem; }
