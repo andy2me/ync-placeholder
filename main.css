@@ -122,6 +122,12 @@ body {
   text-transform: uppercase;
 }
 
+.logo {
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+}
+
 .logo svg {
   display: none;
   width: 2rem;
@@ -174,6 +180,7 @@ body {
 
 .scribble {
   position: relative;
+  white-space: nowrap;
 }
 
 .scribble svg {
